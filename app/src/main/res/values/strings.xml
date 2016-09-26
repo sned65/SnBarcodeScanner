@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">Barcode Scanner</string>
+    <string name="author">Николай Смирнов</string>
+    <string name="back">Назад</string>
+    <string name="capture_barcode">Считать код</string>
+    <string name="flash">Подсветка</string>
+    <string name="settings">Настройки</string>
+    <string name="egais" translatable="false">ЕГАИС</string>
+    <string name="eris" translatable="false">ЕРИС</string>
+
+    <string name="error_low_storage" translatable="false">Barcode detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="error_play_services_not_installed" translatable="false">Google Play services is not installed on this device.</string>
+    <string name="error_no_camera_permission">Штрих-код не может быть прочитан, потому что приложение не имеет разрешения на работу с камерой.</string>
+    <string name="error_wrong_bc">Неправильный штрих-код</string>
+
+    <string name="permission_camera_rationale">Необходим доступ к камере для считывания кода</string>
+    <string name="menu_about">О программе</string>
+    <string name="ok">ОК</string>
+    <string name="copyright" translatable="false">© 2016</string>
+</resources>

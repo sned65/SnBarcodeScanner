@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/viewCaptureBC"
+              android:keepScreenOn="true">
+
+    <sne.bcs.camera.CameraSourcePreview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/preview"
+        android:layout_gravity="center">
+
+        <sne.bcs.camera.GraphicOverlay
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/graphicOverlay"
+            android:layout_gravity="center"/>
+
+    </sne.bcs.camera.CameraSourcePreview>
+
+</LinearLayout>

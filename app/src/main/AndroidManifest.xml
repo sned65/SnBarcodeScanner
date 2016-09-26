@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="sne.bcs"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BarcodeCaptureActivity"
+            android:label="@string/capture_barcode"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".EgaisActivity"
+            android:label="@string/egais"
+            android:parentActivityName=".MainActivity"/>
+
+<!--
+        <activity
+            android:name=".ErisActivity"
+            android:label="@string/eris"
+            android:parentActivityName=".MainActivity"/>
+-->
+
+    </application>
+
+</manifest>
