@@ -7,14 +7,14 @@ def versionString = "${versionMajor}.${versionMinor}.${versionMicro}"
 
 def buildTime() {
     def date = new Date()
-    def formattedDate = date.format('yyyyMMddHHmmss')
-    //def formattedDate = date.format('yyyyMMdd')
+    //def formattedDate = date.format('yyyyMMddHHmmss')
+    def formattedDate = date.format('yyyyMMdd')
     return formattedDate
 }
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion "24.0.2"
     //compileSdkVersion 23
     //buildToolsVersion "23.0.3"
 
@@ -57,9 +57,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
     //compile 'com.android.support:appcompat-v7:23.0.0'
     //compile 'com.android.support:design:23.0.0'
-    compile 'com.google.android.gms:play-services-vision:9.2.0'
+    compile 'com.google.android.gms:play-services-vision:9.6.1'
 }
