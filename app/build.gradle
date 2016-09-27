@@ -28,8 +28,8 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('D:\\Soft My\\jks\\sne.keystore')
-            keyAlias 'sne'
+//            storeFile file('D:\\Soft My\\jks\\sne.keystore')
+//            keyAlias 'sne'
 //            storePassword 'xxx'
 //            keyPassword 'xxx'
         }
