@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity
         Button captureBarcodeBtn = (Button) findViewById(R.id.btnBarcode);
         if (CameraUtils.hasCamera(getApplicationContext()))
         {
-            Log.d(TAG, "onCreate() hasCamera");
+            if (BuildConfig.DEBUG)
+            {
+                Log.d(TAG, "onCreate() hasCamera");
+            }
             captureBarcodeBtn.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -51,7 +54,10 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            Log.d(TAG, "onCreate() disable captureBarcodeBtn");
+            if (BuildConfig.DEBUG)
+            {
+                Log.d(TAG, "onCreate() disable captureBarcodeBtn");
+            }
             captureBarcodeBtn.setEnabled(false);
         }
 
@@ -77,7 +83,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        Log.i(TAG, "onOptionsItemSelected(" + item.getItemId() + ") called");
+        if (BuildConfig.DEBUG)
+        {
+            Log.i(TAG, "onOptionsItemSelected(" + item.getItemId() + ") called");
+        }
         switch (item.getItemId())
         {
 //            case R.id.action_settings:
@@ -106,7 +115,10 @@ public class MainActivity extends AppCompatActivity
      */
     private void action_captureBC()
     {
-        Log.v(TAG, "<Capture BC> button clicked");
+        if (BuildConfig.DEBUG)
+        {
+            Log.v(TAG, "<Capture BC> button clicked");
+        }
         Intent intent = new Intent(this, BarcodeCaptureActivity.class);
         startActivityForResult(intent, RC_BARCODE_CAPTURE);
     }
@@ -114,7 +126,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        Log.i(TAG, "requestCode = " + requestCode + ", resultCode = " + resultCode);
+        if (BuildConfig.DEBUG)
+        {
+            Log.i(TAG, "requestCode = " + requestCode + ", resultCode = " + resultCode);
+        }
         if (resultCode != RESULT_OK)
         {
             Log.e(TAG, "resultCode = "+resultCode);
@@ -156,7 +171,10 @@ public class MainActivity extends AppCompatActivity
 
         // show other barcodes
         String bc_data = BarcodeUtils.barcodeData(_barcode);
-        Log.i(TAG, "bc = "+bc_data);
+        if (BuildConfig.DEBUG)
+        {
+            Log.i(TAG, "bc = " + bc_data);
+        }
         _bcData.setText(bc_data);
     }
 
@@ -194,7 +212,10 @@ public class MainActivity extends AppCompatActivity
             if (url == null) return;
 
             Uri uri = Uri.parse(url);
-            Log.i(TAG, "URI = " + uri);
+            if (BuildConfig.DEBUG)
+            {
+                Log.i(TAG, "URI = " + uri);
+            }
             startActivity(new Intent(Intent.ACTION_VIEW, uri));
             return;
         }

@@ -116,7 +116,10 @@ public class BarcodeCaptureActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        Log.d(TAG, "onOptionsItemSelected(" + item.getItemId() + ") called");
+        if (BuildConfig.DEBUG)
+        {
+            Log.d(TAG, "onOptionsItemSelected(" + item.getItemId() + ") called");
+        }
         switch (item.getItemId())
         {
             case R.id.action_flash:
@@ -124,7 +127,10 @@ public class BarcodeCaptureActivity extends AppCompatActivity
                 {
                     _useFlash = !item.isChecked();
                     item.setChecked(_useFlash);
-                    Log.d(TAG, "onOptionsItemSelected() _useFlash = " + _useFlash);
+                    if (BuildConfig.DEBUG)
+                    {
+                        Log.d(TAG, "onOptionsItemSelected() _useFlash = " + _useFlash);
+                    }
                     _cameraSource.setFlashMode(_useFlash ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);
                 }
                 return true;
@@ -140,7 +146,10 @@ public class BarcodeCaptureActivity extends AppCompatActivity
      */
     private void requestCameraPermission()
     {
-        Log.w(TAG, "Camera permission is not granted. Requesting permission");
+        if (BuildConfig.DEBUG)
+        {
+            Log.w(TAG, "Camera permission is not granted. Requesting permission");
+        }
 
         final String[] permissions = new String[]{Manifest.permission.CAMERA};
 
@@ -396,8 +405,11 @@ public class BarcodeCaptureActivity extends AppCompatActivity
 
     private void action_onFound(Barcode barcode)
     {
-        Log.i(TAG, "action_onFound(" + (barcode == null ? "null" : barcode.displayValue)
-                + ") called");
+        if (BuildConfig.DEBUG)
+        {
+            Log.d(TAG, "action_onFound(" + (barcode == null ? "null" : barcode.displayValue)
+                    + ") called");
+        }
         Intent result = new Intent();
         result.putExtra(MainActivity.DATA_BARCODE, barcode);
         setResult(RESULT_OK, result);

@@ -39,6 +39,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sne.bcs.BuildConfig;
+
 /**
  * Manages the camera in conjunction with an underlying
  * {@link com.google.android.gms.vision.Detector}.  This receives preview frames from the camera at
@@ -760,9 +762,12 @@ public class CameraSource
         }
         Size pictureSize = sizePair.pictureSize();
         mPreviewSize = sizePair.previewSize();
-        Log.i(TAG, "*** createCamera() RequestedPreview "+mRequestedPreviewWidth+"x"+mRequestedPreviewHeight);
-        Log.i(TAG, "*** createCamera() pictureSize "+pictureSize);
-        Log.i(TAG, "*** createCamera() mPreviewSize "+mPreviewSize);
+        if (BuildConfig.DEBUG)
+        {
+            Log.i(TAG, "*** createCamera() RequestedPreview " + mRequestedPreviewWidth + "x" + mRequestedPreviewHeight);
+            Log.i(TAG, "*** createCamera() pictureSize " + pictureSize);
+            Log.i(TAG, "*** createCamera() mPreviewSize " + mPreviewSize);
+        }
 
         int[] previewFpsRange = selectPreviewFpsRange(camera, mRequestedFps);
         if (previewFpsRange == null) {
@@ -787,7 +792,10 @@ public class CameraSource
                             mFocusMode)) {
                 parameters.setFocusMode(mFocusMode);
             } else {
-                Log.i(TAG, "Camera focus mode: " + mFocusMode + " is not supported on this device.");
+                if (BuildConfig.DEBUG)
+                {
+                    Log.d(TAG, "Camera focus mode: " + mFocusMode + " is not supported on this device.");
+                }
             }
             //Log.i(TAG, "createCamera() focus mode = "+getFocusMode());
         }
@@ -801,7 +809,7 @@ public class CameraSource
                             mFlashMode)) {
                 parameters.setFlashMode(mFlashMode);
             } else {
-                Log.i(TAG, "Camera flash mode: " + mFlashMode + " is not supported on this device.");
+                Log.d(TAG, "Camera flash mode: " + mFlashMode + " is not supported on this device.");
             }
         }
 

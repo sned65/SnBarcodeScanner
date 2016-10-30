@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Barcode Scanner</string>
+    <string name="app_label" translatable="false">Сканер ЕГАИС кода</string>
     <string name="author">Николай Смирнов</string>
     <string name="back">Назад</string>
     <string name="capture_barcode">Считать код</string>
