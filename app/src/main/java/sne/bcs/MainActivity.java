@@ -158,6 +158,16 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
+        if (EgaisActivity.isUppercaseEgais(url))
+        {
+            // Protection against QR codes (eg from METRO) containing uppercase URL.
+            url = url.toLowerCase();
+            Intent egais = new Intent(this, EgaisActivity.class);
+            egais.putExtra(EgaisActivity.EGAIS_URI, url);
+            startActivity(egais);
+            return;
+        }
+
 //        // process ERIS
 //        String eris_text = extractEris();
 //        Log.i(TAG, "eris_text = "+eris_text);
@@ -216,8 +226,12 @@ public class MainActivity extends AppCompatActivity
             {
                 Log.i(TAG, "URI = " + uri);
             }
-            startActivity(new Intent(Intent.ACTION_VIEW, uri));
-            return;
+
+            Intent i = new Intent(Intent.ACTION_VIEW, uri);
+            if (i.resolveActivity(getPackageManager()) != null)
+            {
+                startActivity(i);
+            }
         }
     }
 }
