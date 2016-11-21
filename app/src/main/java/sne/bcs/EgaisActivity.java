@@ -24,4 +24,9 @@ public class EgaisActivity extends AppCompatActivity
     {
         return url !=  null && url.contains("egais.ru");
     }
+
+    public static boolean isUppercaseEgais(String url)
+    {
+        return url !=  null && url.contains("EGAIS.RU");
+    }
 }
